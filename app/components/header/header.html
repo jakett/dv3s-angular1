@@ -1,0 +1,67 @@
+<nav class="navbar navbar-default flex flex-rows v-centered" role="navigation">
+    <div class="logo-container flex h-centered v-centered" ng-click="displayNavigation()">
+        <div class="dl-logo-circle dl-logo" ng-class="{'n-active': showNavigation}"></div>
+    </div>
+    <div class="tab-container">
+        <ul class="nav navbar-nav global-tab flex flex-rows v-centered">
+
+          <li class="item">
+            <a ui-sref="root.inbox">
+              <div class="tab-app-icon">
+                <i class="icons8-new-post" ui-sref-active="active"></i>
+                <span class="badge blue">5</span>
+              </div>
+            </a>
+          </li>
+
+          <li class="browser">
+            <a ui-sref="root.browser" ui-sref-active="active">
+              <i class="icons8-mind-map" aria-hidden="true"></i>
+            </a>
+          </li>
+
+          <li class="item" >
+              <a ui-sref="root.surveillance" ui-sref-active="active">
+                  <i class="icons8-detective" aria-hidden="true"></i>
+              </a>
+          </li>
+
+          <li class="item">
+              <a ui-sref="root.setting" ui-sref-active="active">
+                  <i class="icons8-settings-3" aria-hidden="true"></i>
+              </a>
+          </li>
+
+        </ul>
+
+        <ul class="nav navbar-nav global-tab nav-mobile flex flex-rows v-centered">
+            <li>
+                <a ui-sref="root.surveillance" ng-if="'root.surveillance' | includedByState">
+                    <i class="icon icons8-detective" aria-hidden="true"></i>
+                    <div class="title">{{"surveillance" | translate}}</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="navigation-space-container">
+      <a>
+        <i class="icons8-search" aria-hidden="true"></i>
+      </a>
+    </div>
+    <div>
+      <ul class="nav nav-bar-control navbar-nav navbar-right global-tab user-container">
+        <li uib-dropdown>
+          <a class="user-thumb" href="" uib-dropdown-toggle role="button" aria-expanded="false">
+            <i class="icons8-online-support"></i><span ng-bind="vmHeader.currentPerson.firstname"></span><span
+            ng-bind="vmHeader.currentPerson.lastname"></span>&nbsp;
+            <i class="glyphicon glyphicon-menu-down" style="font-size:60%;"></i>
+          </a>
+          <ul ui-dropdown-menu class="dropdown-menu" role="menu">
+            <li class="user-action-list" style="pointer-events: none"><span ng-bind="vmHeader.currentPerson.firstname"></span>&nbsp;<span
+              ng-bind="vmHeader.currentPerson.lastname"></span>&nbsp;</li>
+            <li><a ng-click="vmHeader.logout()">{{"logout" | translate}}</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+</nav>
